@@ -20,7 +20,10 @@ public class NewMain {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("gap : "+Binary(6));;
+        //System.out.println("gap : "+Binary(6));
+        int[] arr = {1,2,3,4,5};
+        int[] arr2 = {};
+        System.out.println((CycleicRotation(arr2,3)).toString());
     }
     
     public static int Binary(int number){
@@ -46,6 +49,26 @@ public class NewMain {
         gap = Math.max(gap, counter);
         
         return gap;
+    }
+    
+   
+     public static int[] CycleicRotation(int[] A, int K) {
+        // write your code in Java SE 8
+        if(A.length<1 || K <0){
+            return A;
+        }
+        else{
+            System.out.println("2");
+            int []copy = A.clone();
+            int offset = A.length - K% A.length;
+            for(int i=0;i<=A.length-1;i++){
+                int idx = (i+offset)%A.length;
+                A[i] = copy[idx];
+                System.out.print(A[i]+"  ");
+            }
+            return A;
+        }
+        
     }
     
 }
